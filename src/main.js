@@ -8,7 +8,7 @@ import './assets/css/iconfont.css'
 import router from './router/router'
 import App from './App.vue'
 
-Vue.use(ElementUI)
+Vue.use(ElementUI);
 Vue.config.productionTip = false;
 
 new Vue({
@@ -16,4 +16,4 @@ new Vue({
     router,
     template: '<App/>',
     components: { App }
-})
+});
