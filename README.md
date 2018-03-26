@@ -1,9 +1,7 @@
-# qnz-vue
-
+﻿# secondHandApp
 
 ### 项目使用技术栈
 **webpack3.x + vue2.x + vue-router3.x + axios0.x + elementUI**
-
 
 ### 项目目录
 **build----- 项目启动文件**
