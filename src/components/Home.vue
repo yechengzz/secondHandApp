@@ -1,16 +1,18 @@
 <template>
     <div class="container">
         <NavMenu></NavMenu>
+        <Banner></Banner>
     </div>
 </template>
 
 <script>
-    //import Head from './common/Header.vue';
-    import  NavMenu from './common/Navmenu.vue'
+    import NavMenu from './common/Navmenu.vue'
+    import Banner from './index/Banner.vue'
 
     export default{
         components: {
-            NavMenu
+            NavMenu,
+            Banner
         }
     }
 </script>

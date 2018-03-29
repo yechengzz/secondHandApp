@@ -1,30 +1,43 @@
 <template>
-    <div class="navMenu clearFix">
-        <div class="logo fl">
-            <div class="clearFix">
-                <div class="fl">
-                    <img v-bind:src=logoSrc alt="">
-                </div>
-                <div class="fr">
-                    <h1 v-text="logoTitle"></h1>
-                </div>
-            </div>
+    <div class="navMenu">
+        <div class="logo">
+            <img :src=logoSrc alt="">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+                <el-menu-item index="1">首页</el-menu-item>
+                <el-menu-item index="2" disabled>关于我们</el-menu-item>
+                <el-menu-item index="3" disabled>用户须知</el-menu-item>
+                <el-menu-item index="4" disabled>找贰货</el-menu-item>
+                <el-menu-item index="5" disabled>我的贰货</el-menu-item>
+                <el-menu-item index="6" disabled>贰货圈</el-menu-item>
+                <el-menu-item index="7" disabled>贰货鉴定</el-menu-item>
+            </el-menu>
+            <img :src="languageSrc" alt="">
         </div>
     </div>
 </template>
 
 <script>
     const logoRequire = require('../../assets/images/logo.png');
+    const languageRequire = require('../../assets/images/language.png'); 
 
     export default{
         data(){
             return{
                 logoSrc: logoRequire,
-                logoTitle: '贰货购'
+                activeIndex: '',
+                languageSrc: languageRequire
             }
         },
-        components:{
-
+        created(){
+            this.fetchData();
+        },
+        watch:{
+            '$route': 'fetchData'
+        },
+        methods:{
+            fetchData(){
+                this.activeIndex = this.$route.name[0];
+            }
         }
     }
 </script>
@@ -34,14 +47,40 @@
         width: 100%;
         min-width: 1200px;
         height: 111px;
-        background: blue;
         .logo{
-            margin: 24px 0 0 114px;
-            h1{
-                color: #099e80;
-                font-weight: normal;
-                font-family: fzzyjt;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 24px 0 0 0;
+            img{
+                &:nth-child(1){
+                    width: 227px;
+                    height: 58px;
+                }
+                &:nth-child(3){
+                    width: 87px;
+                    height: 26px;
+                    position: relative;
+                    top: 20px;
+                }
+            }
+            ul{
+                position: relative;
+                top: 26px;
+                li{
+                font-size: 16px;
+                height: 40px;
+                line-height: 40px;
+                padding: 0;
+                margin: 0 20px;
+                }
             }
         }
+    }
+    .el-menu--horizontal>.el-menu-item.is-active{
+        border-bottom: 4px solid #099e80;
+    }
+    .el-menu--horizontal{
+        border-bottom: none;
     }
 </style>
