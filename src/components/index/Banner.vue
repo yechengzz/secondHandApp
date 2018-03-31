@@ -1,6 +1,8 @@
 <template>
-    <div class="container" :style=bannerStyle>
-        
+    <div class="block">
+        <el-carousel height="912px">
+            <el-carousel-item v-for="item in 2" :key="item"></el-carousel-item>
+        </el-carousel>
     </div>
 </template>
 
@@ -8,11 +10,10 @@
     export default{
         data(){
             return{
-                bannerStyle:{
-                    backgroundImage: 'url(' + require("../../assets/images/index/banner.png") + ')',
+                timeStyle:{
+                    backgroundImage: 'url(' + require("../../assets/images/index/time.png") + ')',
                     backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'auto',
-                    backgroundPosition: 'center top'
+                    backgroundSize: '100% 100%'
                 }
             }
         }
@@ -20,8 +21,23 @@
 </script>
 
 <style lang="scss" scoped>
-    .container{
+    .block{
         min-width: 1200px;
-        height: 912px;
+    }
+    .time{
+        width: 130px;
+        height: 161px;
+        position: absolute;
+        top: 168px;
+        left: 100px;
+        z-index: 10000;
+    }
+    .el-carousel__item:nth-child(2n) {
+        background: url("../../assets/images/index/banner.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    .el-carousel__item:nth-child(2n+1) {
+        background: url("../../assets/images/index/banner1.png") no-repeat;
+        background-size: 100% 100%;
     }
 </style>
