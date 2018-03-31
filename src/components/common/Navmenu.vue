@@ -6,7 +6,7 @@
                 <el-menu-item index="1"><router-link to="/">首页</router-link></el-menu-item>
                 <el-menu-item index="2"><router-link to="/aboutus">关于我们</router-link></el-menu-item>
                 <el-menu-item index="3" disabled>用户须知</el-menu-item>
-                <el-menu-item index="4" disabled>找贰货</el-menu-item>
+                <el-menu-item index="4"><router-link to="search">找贰货</router-link></el-menu-item>
                 <el-menu-item index="5" disabled>我的贰货</el-menu-item>
                 <el-menu-item index="6" disabled>贰货圈</el-menu-item>
                 <el-menu-item index="7" disabled>贰货鉴定</el-menu-item>

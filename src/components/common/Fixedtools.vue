@@ -6,7 +6,7 @@
             title="联系电话"
             width="50"
             trigger="hover"
-            content="XXX-XXX-XXX">
+            content="XXX-XXXX-XXX">
         </el-popover>
         <el-popover
             ref="popover2"
