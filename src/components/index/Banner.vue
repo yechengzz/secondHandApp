@@ -32,12 +32,10 @@
         left: 100px;
         z-index: 10000;
     }
-    .el-carousel__item:nth-child(2n) {
-        background: url("../../assets/images/index/banner.png") no-repeat;
-        background-size: 100% 100%;
-    }
     .el-carousel__item:nth-child(2n+1) {
-        background: url("../../assets/images/index/banner1.png") no-repeat;
-        background-size: 100% 100%;
+        background: url("../../assets/images/index/banner.png") no-repeat center 100%;
+    }
+    .el-carousel__item:nth-child(2n) {
+        background: url("../../assets/images/index/banner1.png") no-repeat center 100%;
     }
 </style>
