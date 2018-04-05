@@ -1,5 +1,6 @@
 import 'babel-polyfill'
 import Vue from 'vue'
+import Vuex from 'vuex'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/common.css'
