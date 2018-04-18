@@ -10,12 +10,21 @@
     import NavMenu from './common/Navmenu.vue'
     import Banner from './index/Banner.vue'
     import FixedTools from './common/Fixedtools.vue'
+    import axios from 'axios'
 
     export default{
+        data () {
+            return{
+
+            }
+        },
         components: {
             NavMenu,
             Banner,
             FixedTools
+        },
+        methods: {
+            
         }
     }
 </script>

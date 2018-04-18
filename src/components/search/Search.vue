@@ -6,12 +6,17 @@
             <h1>懂你的贰货</h1>
             <input type="text" placeholder="请输入想要搜索的商品名">
         </div>
-        <div class="type">
+        <div class="products">
             <ul>
-                <li></li>
-                <li></li>
+                <li v-for="product in products" :key="product.product_id">
+                    <router-link :to="`detail/${product.product_id}`">
+                        <img :src="src" alt="">
+                        <h2>{{ product.product_title }}</h2>
+                        <p>{{ product.product_intro }}</p>
+                        <h4>￥{{ product.product_price }}</h4>
+                    </router-link>
+                </li>
             </ul>
-            <video :src=videoSrc controls="controls"></video>
         </div>
         <Footer></Footer>
     </div>
@@ -21,18 +26,31 @@
     import NavMenu from '../common/Navmenu.vue'
     import FixedTools from '../common/Fixedtools.vue'
     import Footer from '../common/Footer.vue'
-    const videoRequire = require('../../assets/images/search/ns.mp4');
+    import axios from 'axios'
+    
 
     export default{
         data(){
             return{
-                videoSrc: videoRequire
+                products: [],
+                src: require('../../assets/images/products/ns.jpg')
             }
         },
         components:{
             NavMenu,
             FixedTools,
             Footer
+        },
+        mounted(){
+            this.getProducts();
+        },
+        methods:{
+            getProducts(){
+                axios.post('http://localhost:3000/api/productList')
+                .then(res => {
+                    this.products = res.data;
+                });
+            }
         }
     }
 </script>
@@ -41,7 +59,7 @@
     .main{
         min-width: 1200px;
         background: url('../../assets/images/search/bg.png') no-repeat center 100%;
-        padding: 140px 0 290px 0;
+        padding: 110px 0 290px 0;
         h1{
             font-size: 56px;
             text-align: center;
@@ -61,32 +79,55 @@
             background-size: 7% 66%;
         }
     }
-    .type{
-        width: 1000px;
-        margin: 0 auto;
-        padding: 0 0 60px 0;
-        li{
+    .products{
+        ul{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             position: relative;
-            top: -42px;
-            width: 128px;
-            height: 84px;
-            display: inline-block;
-            &:nth-child(1){
-                background: url('../../assets/images/search/ns.png') no-repeat;
-                background-size: 100% 100%;
-                top: -62px;
-                cursor: pointer;
+            top: -120px;
+            li{
+                width: 290px;
+                height: 340px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                background: #f6f6f6;
+                img{
+                    width: 90%;
+                    display: block;
+                    margin: 0 auto;
+                }
+                h2{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 90%;
+                    margin: 10px auto;
+                    font-size: 28px;
+                    color: #000000;
+                }
+                p{
+                    font-size: 20px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 90%;
+                    margin: 0 auto;
+                    color: #666666;
+                }
+                h4{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 90%;
+                    margin: 10px auto;
+                    font-size: 28px;
+                    text-align: right;
+                    color: red;
+                }
             }
-            &:nth-child(2){
-                background: url('../../assets/images/search/lego.png') no-repeat;
-                background-size: 100% 100%;
-                left: -4px;
-                cursor: not-allowed;
-            }
-        }
-        video{
-            display: block;
-            width: 100%;
         }
     }
 </style>

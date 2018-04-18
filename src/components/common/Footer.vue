@@ -2,17 +2,17 @@
     <div class="footer">
         <ul>
             <li><router-link to="/aboutus">关于我们</router-link></li>
-            <li><router-link to="/aboutus">帮助中心</router-link></li>
+            <li><router-link to="/">帮助中心</router-link></li>
             <li>客服专线</li>
             <li>微信公众号</li>
             <li>官方微博</li>
-            <li><router-link to="/aboutus">加入我们</router-link></li>
-            <li><router-link to="/aboutus">官方公告</router-link></li>
+            <li><router-link to="/">加入我们</router-link></li>
+            <li><router-link to="/">官方公告</router-link></li>
             <li>XXX-XXX-XXXX</li>
             <li><img :src="wechatSrc" alt=""></li>
             <li><img :src="weiboSrc" alt=""></li>  
-            <li><router-link to="/aboutus">联系我们</router-link></li>
-            <li><router-link to="/aboutus">贰货圈</router-link></li>
+            <li><router-link to="/">联系我们</router-link></li>
+            <li><router-link to="/">贰货圈</router-link></li>
             <li><font>服务时间(9:00-18:00)</font></li>
         </ul>
     </div>
@@ -36,7 +36,7 @@
     .footer{
         width: 100%;
         min-width: 1200px;
-        background: #099e80;
+        background: #0bb794;
         padding: 40px 0;
         ul{
             width: 1200px;
